@@ -1,4 +1,4 @@
-<manifest package="jp.hideakisago.androidcommons"
+<manifest package="jp.hideakisago.androidtemplate"
           xmlns:android="http://schemas.android.com/apk/res/android">
 
     <application
