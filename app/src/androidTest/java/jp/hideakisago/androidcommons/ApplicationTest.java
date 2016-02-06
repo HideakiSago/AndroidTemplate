@@ -1,4 +1,4 @@
-package jp.hideakisago.androidcommons;
+package jp.hideakisago.androidtemplate;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;
