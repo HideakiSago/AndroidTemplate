@@ -18,10 +18,24 @@ android {
         versionCode VERSION_CODE
         versionName VERSION_NAME
     }
+    productFlavors {
+        production {
+        }
+        staging {
+            versionName "${VERSION_NAME}#${VERSION_CODE}-staging"
+        }
+        develop {
+            versionName "${VERSION_NAME}#${VERSION_CODE}-develop"
+        }
+    }
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            debuggable true
+            versionNameSuffix "-debug"
         }
     }
 }
