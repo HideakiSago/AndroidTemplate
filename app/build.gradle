@@ -12,11 +12,11 @@ android {
     buildToolsVersion "23.0.2"
 
     defaultConfig {
-        applicationId "jp.hideakisago.androidtemplate"
+        applicationId APPLICATION_ID
         minSdkVersion 17
         targetSdkVersion 23
-        versionCode 1
-        versionName "1.0"
+        versionCode VERSION_CODE
+        versionName VERSION_NAME
     }
     buildTypes {
         release {
