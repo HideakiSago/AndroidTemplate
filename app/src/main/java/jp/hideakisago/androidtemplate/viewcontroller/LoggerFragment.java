@@ -30,7 +30,7 @@ public class LoggerFragment extends Fragment {
     protected final Logger mLog = Logger.Factory.create(this);
 
     @Override
-    public void onActivityCreated(Bundle savedInstanceState) {
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         mLog.trace(savedInstanceState);
         super.onActivityCreated(savedInstanceState);
     }
@@ -60,7 +60,7 @@ public class LoggerFragment extends Fragment {
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    public void onCreate(@Nullable Bundle savedInstanceState) {
         mLog.trace(savedInstanceState);
         super.onCreate(savedInstanceState);
     }
@@ -85,7 +85,8 @@ public class LoggerFragment extends Fragment {
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(
+            LayoutInflater inflater, ViewGroup container, @Nullable Bundle savedInstanceState) {
         mLog.trace(inflater, container, savedInstanceState);
         return super.onCreateView(inflater, container, savedInstanceState);
     }
@@ -121,7 +122,7 @@ public class LoggerFragment extends Fragment {
     }
 
     @Override
-    public void onInflate(Context context, AttributeSet attrs, Bundle savedInstanceState) {
+    public void onInflate(Context context, AttributeSet attrs, @Nullable Bundle savedInstanceState) {
         mLog.trace(context, attrs, savedInstanceState);
         super.onInflate(context, attrs, savedInstanceState);
     }
@@ -194,13 +195,13 @@ public class LoggerFragment extends Fragment {
     }
 
     @Override
-    public void onViewCreated(View view, Bundle savedInstanceState) {
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         mLog.trace(view, savedInstanceState);
         super.onViewCreated(view, savedInstanceState);
     }
 
     @Override
-    public void onViewStateRestored(Bundle savedInstanceState) {
+    public void onViewStateRestored(@Nullable Bundle savedInstanceState) {
         mLog.trace(savedInstanceState);
         super.onViewStateRestored(savedInstanceState);
     }
