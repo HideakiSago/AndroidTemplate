@@ -1,4 +1,4 @@
-package jp.hideakisago.androidtemplate.viewcontroller;
+package jp.hideakisago.androidtemplate.viewcontrollers;
 
 import android.animation.Animator;
 import android.app.Fragment;

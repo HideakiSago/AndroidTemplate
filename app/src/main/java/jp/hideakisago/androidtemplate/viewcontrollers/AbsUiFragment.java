@@ -1,4 +1,4 @@
-package jp.hideakisago.androidtemplate.viewcontroller;
+package jp.hideakisago.androidtemplate.viewcontrollers;
 
 import android.os.Bundle;
 import android.support.annotation.CallSuper;
