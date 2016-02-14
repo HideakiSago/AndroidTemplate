@@ -7,6 +7,19 @@ import java.util.Set;
 
 /**
  * 設定を SharedPreferences に保存するための抽象 wrapper class です。
+ * <p>
+ * usage:
+ * <pre><code>
+ * private static final BooleanEntry CONFIG1 = new BooleanEntry("config1", true);
+ *
+ * public void setConfig1(boolean config1) {
+ *     set(CONFIG1, config1);
+ * }
+ *
+ * public boolean getConfig1() {
+ *     return get(CONFIG1);
+ * }
+ * </code></pre>
  */
 public abstract class AbsConfig {
 
@@ -207,7 +220,6 @@ public abstract class AbsConfig {
      *     .put(CONFIG2, 100)
      *     .apply();
      * </code></pre>
-     * </p>
      *
      * @return 編集するための {@link Editor} を返却します。
      * @see SharedPreferences#edit()
