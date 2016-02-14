@@ -1,4 +1,4 @@
-package jp.hideakisago.androidtemplate.viewcontrollers;
+package jp.hideakisago.androidtemplate.viewcontrollers.menu;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
