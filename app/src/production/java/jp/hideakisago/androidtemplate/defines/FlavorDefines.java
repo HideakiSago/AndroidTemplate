@@ -1,7 +1,7 @@
 package jp.hideakisago.androidtemplate.defines;
 
 /**
- * Production flavor defines.
+ * Production flavor defines。
  */
 class FlavorDefines {
 }
