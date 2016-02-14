@@ -1,3 +1,9 @@
 <resources>
+    <!-- **** 全般 **** -->
     <string name="app_name">Android template</string>
+
+    <!-- **** 画面共通 **** -->
+
+    <!-- **** 各画面 **** -->
+
 </resources>
