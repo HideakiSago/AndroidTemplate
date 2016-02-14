@@ -12,11 +12,22 @@ import jp.hideakisago.androidtemplate.App;
 public class AppConfig extends AbsConfig {
 
     /**
+     * Context から SharedPreferences の instance を取得して AppConfig を生成し、
+     * 生成した instance を bridge で渡します。
+     *
+     * @param context SharedPreferences を取得するための context です。
+     * @param bridge 生成した instance を橋渡しします。
+     */
+    public static void create(Context context, App.PrivateBridge<AppConfig> bridge) {
+        bridge.pass(new AppConfig(context));
+    }
+
+    /**
      * Context から SharedPreferences の instance を取得して生成する constructor です。
      *
      * @param context SharedPreferences を取得するための context です。
      */
-    public AppConfig(Context context) {
+    private AppConfig(Context context) {
         super(context);
     }
 }
