@@ -33,8 +33,19 @@ public class StackTraceUtils {
      * <li>...</li>
      * </ul>
      * @return 指定した method の stack trace element を返します。
+     * @see #getCurrentStackTraceElement()
      */
     public static StackTraceElement getStackTraceElement(@IntRange(to = CURRENT_METHOD_INDEX) int index) {
         return Thread.currentThread().getStackTrace()[CURRENT_METHOD_INDEX - index];
+    }
+
+    /**
+     * 現在の method (この method を呼び出した method)の stack trace element を取得します。
+     *
+     * @return 現在の method の stack trace element を返します。
+     * @see #getStackTraceElement(int)
+     */
+    public static StackTraceElement getCurrentStackTraceElement() {
+        return Thread.currentThread().getStackTrace()[CURRENT_METHOD_INDEX];
     }
 }
