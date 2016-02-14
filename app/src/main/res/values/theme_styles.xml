@@ -1,11 +1,39 @@
 <resources>
 
-    <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+
+        <item name="android:textAppearance">@style/TextAppearance</item>
+        <item name="android:textAppearanceSmall">@style/TextAppearance.Small</item>
+        <item name="android:textAppearanceMedium">@style/TextAppearance.Medium</item>
+        <item name="android:textAppearanceLarge">@style/TextAppearance.Large</item>
+
+        <item name="android:textViewStyle">@style/TextViewStyle</item>
+        <item name="android:editTextStyle">@style/EditTextStyle</item>
+        <item name="android:buttonStyle">@style/ButtonStyle</item>
+    </style>
+
+    <style name="TextAppearance" parent="android:TextAppearance">
+    </style>
+
+    <style name="TextAppearance.Small" parent="android:TextAppearance.Small">
+    </style>
+
+    <style name="TextAppearance.Medium" parent="android:TextAppearance.Medium">
+    </style>
+
+    <style name="TextAppearance.Large" parent="android:TextAppearance.Large">
+    </style>
+
+    <style name="TextViewStyle" parent="android:Widget.TextView">
+    </style>
+
+    <style name="EditTextStyle" parent="android:Widget.EditText">
+    </style>
+
+    <style name="ButtonStyle" parent="android:Widget.Button">
     </style>
 
 </resources>
