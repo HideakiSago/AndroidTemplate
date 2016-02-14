@@ -30,7 +30,7 @@ public class MyScreenRecyclerViewAdapter extends RecyclerView.Adapter<MyScreenRe
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.fragment_screen_list, parent, false);
+                .inflate(R.layout.fragment_screen, parent, false);
         return new ViewHolder(view);
     }
 
