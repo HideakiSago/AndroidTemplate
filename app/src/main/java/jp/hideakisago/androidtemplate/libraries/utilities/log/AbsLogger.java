@@ -40,7 +40,7 @@ abstract class AbsLogger implements Logger {
      * {@link #trace()} で出力する message を取得します。
      *
      * @param element Trace log として出力したい method の stack element です。
-     * @return 以下の format の文字列を返却します。<br>
+     * @return 以下の format の文字列を返します。<br>
      * &lt;Simple class name>.&lt;Method name>(&lt;File name>:&lt;Line number>)
      * 例: <pre><code>SampleFragment.onCreate(SampleFragment:120)</code></pre>
      */
@@ -53,7 +53,7 @@ abstract class AbsLogger implements Logger {
      * クラスの正式名称（jp...SampleClass）から単純なクラス名（SimpleClass）を取得します。
      *
      * @param className 単純なクラス名を取得する、クラスの正式名称を指定します。
-     * @return パッケージ名を除いた、単純なクラス名を返却します。
+     * @return パッケージ名を除いた、単純なクラス名を返します。
      */
     private static String getSimpleName(String className) {
         final int lastIndexOfDot = className.lastIndexOf(".");

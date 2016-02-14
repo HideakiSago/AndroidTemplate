@@ -41,7 +41,7 @@ public abstract class AbsConfig {
      * 保存している boolean の値を取得します。
      *
      * @param entry 取得する値の {@link BooleanEntry entry} です。
-     * @return 保存している boolean の値を返却します。 値が設定されていない場合は entry に設定されている default value が返却されます。
+     * @return 保存している boolean の値を返します。 値が設定されていない場合は entry に設定されている default value が返されます。
      * @see SharedPreferences#getBoolean(String, boolean)
      */
     protected boolean get(BooleanEntry entry) {
@@ -52,7 +52,7 @@ public abstract class AbsConfig {
      * 保存している int の値を取得します。
      *
      * @param entry 取得する値の {@link IntEntry entry} です。
-     * @return 保存している int の値を返却します。 値が設定されていない場合は entry に設定されている default value が返却されます。
+     * @return 保存している int の値を返します。 値が設定されていない場合は entry に設定されている default value が返されます。
      * @see SharedPreferences#getInt(String, int)
      */
     protected int get(IntEntry entry) {
@@ -62,7 +62,7 @@ public abstract class AbsConfig {
     /**
      * 保存している long の値を取得します。
      *
-     * @param entry 取得する値の long の値を返却します。 値が設定されていない場合は entry に設定されている default value が返却されます。
+     * @param entry 取得する値の long の値を返します。 値が設定されていない場合は entry に設定されている default value が返されます。
      * @see SharedPreferences#getLong(String, long)
      */
     protected long get(LongEntry entry) {
@@ -73,7 +73,7 @@ public abstract class AbsConfig {
      * 保存している float の値を取得します。
      *
      * @param entry 取得する値の {@link FloatEntry entry} です。
-     * @return 保存している float の値を返却します。 値が設定されていない場合は entry に設定されている default value が返却されます。
+     * @return 保存している float の値を返します。 値が設定されていない場合は entry に設定されている default value が返されます。
      * @see SharedPreferences#getFloat(String, float)
      */
     protected float get(FloatEntry entry) {
@@ -84,7 +84,7 @@ public abstract class AbsConfig {
      * 保存している string の値を取得します。
      *
      * @param entry 取得する値の {@link StringEntry entry} です。
-     * @return 保存している string の値を返却します。 値が設定されていない場合は entry に設定されている default value が返却されます。
+     * @return 保存している string の値を返します。 値が設定されていない場合は entry に設定されている default value が返されます。
      * @see SharedPreferences#getString(String, String)
      */
     protected String get(StringEntry entry) {
@@ -95,7 +95,7 @@ public abstract class AbsConfig {
      * 保存している string set の値を取得します。
      *
      * @param entry 取得する値の {@link StringSetEntry entry} です。
-     * @return 保存している string set の値を返却します。 値が設定されていない場合は entry に設定されている default value が返却されます。
+     * @return 保存している string set の値を返します。 値が設定されていない場合は entry に設定されている default value が返されます。
      * @see SharedPreferences#getStringSet(String, Set)
      */
     protected Set<String> get(StringSetEntry entry) {
@@ -221,7 +221,7 @@ public abstract class AbsConfig {
      *     .apply();
      * </code></pre>
      *
-     * @return 編集するための {@link Editor} を返却します。
+     * @return 編集するための {@link Editor} を返します。
      * @see SharedPreferences#edit()
      */
     protected Editor edit() {
@@ -243,7 +243,7 @@ public abstract class AbsConfig {
          *
          * @param entry 保存するように設定する値の entry 情報です。
          * @param value 保存するように設定する値です。
-         * @return Method chain で呼び出せるようにするため this を返却します。
+         * @return Method chain で呼び出せるようにするため this を返します。
          */
         public Editor put(BooleanEntry entry, boolean value) {
             mEditor.putBoolean(entry.key, value);
@@ -256,7 +256,7 @@ public abstract class AbsConfig {
          *
          * @param entry 保存するように設定する値の entry 情報です。
          * @param value 保存するように設定する値です。
-         * @return Method chain で呼び出せるようにするため this を返却します。
+         * @return Method chain で呼び出せるようにするため this を返します。
          */
         public Editor put(IntEntry entry, int value) {
             mEditor.putInt(entry.key, value);
@@ -269,7 +269,7 @@ public abstract class AbsConfig {
          *
          * @param entry 保存するように設定する値の entry 情報です。
          * @param value 保存するように設定する値です。
-         * @return Method chain で呼び出せるようにするため this を返却します。
+         * @return Method chain で呼び出せるようにするため this を返します。
          */
         public Editor put(LongEntry entry, long value) {
             mEditor.putLong(entry.key, value);
@@ -282,7 +282,7 @@ public abstract class AbsConfig {
          *
          * @param entry 保存するように設定する値の entry 情報です。
          * @param value 保存するように設定する値です。
-         * @return Method chain で呼び出せるようにするため this を返却します。
+         * @return Method chain で呼び出せるようにするため this を返します。
          */
         public Editor put(FloatEntry entry, float value) {
             mEditor.putFloat(entry.key, value);
@@ -295,7 +295,7 @@ public abstract class AbsConfig {
          *
          * @param entry 保存するように設定する値の entry 情報です。
          * @param value 保存するように設定する値です。
-         * @return Method chain で呼び出せるようにするため this を返却します。
+         * @return Method chain で呼び出せるようにするため this を返します。
          */
         public Editor put(StringEntry entry, String value) {
             mEditor.putString(entry.key, value);
@@ -308,7 +308,7 @@ public abstract class AbsConfig {
          *
          * @param entry 保存するように設定する値の entry 情報です。
          * @param value 保存するように設定する値です。
-         * @return Method chain で呼び出せるようにするため this を返却します。
+         * @return Method chain で呼び出せるようにするため this を返します。
          */
         public Editor put(StringSetEntry entry, Set<String> value) {
             mEditor.putStringSet(entry.key, value);
@@ -320,7 +320,7 @@ public abstract class AbsConfig {
          * 保存したい全ての値を設定したら {@link #apply()} で保存します。
          *
          * @param entry 削除するように設定する値の entry 情報です。
-         * @return Method chain で呼び出せるようにするため this を返却します。
+         * @return Method chain で呼び出せるようにするため this を返します。
          */
         public Editor remove(AbsEntry entry) {
             mEditor.remove(entry.key);

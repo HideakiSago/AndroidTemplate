@@ -25,7 +25,7 @@ public class App extends Application {
     }
 
     /**
-     * @return {@link AppConfig} の instance を返却します。
+     * @return {@link AppConfig} の instance を返します。
      */
     public AppConfig getConfig() {
         return mAppConfig;
