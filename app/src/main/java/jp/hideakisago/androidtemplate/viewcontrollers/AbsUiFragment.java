@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 
 import jp.hideakisago.androidtemplate.App;
 import jp.hideakisago.androidtemplate.libraries.utilities.ViewFinder;
+import jp.hideakisago.androidtemplate.models.configurations.AppConfig;
 
 /**
  * 画面を持つ fragment の抽象 class です。
@@ -83,5 +84,12 @@ public abstract class AbsUiFragment extends LoggerFragment {
      */
     protected final App getApp() {
         return (App) getActivity().getApplication();
+    }
+
+    /**
+     * @return {@link AppConfig} の instance を返します。
+     */
+    protected final AppConfig getAppConfig() {
+        return getApp().getConfig();
     }
 }

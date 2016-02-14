@@ -2,8 +2,12 @@ package jp.hideakisago.androidtemplate.models.configurations;
 
 import android.content.Context;
 
+import jp.hideakisago.androidtemplate.App;
+
 /**
  * Application 全体で共有する global な config class です。
+ *
+ * @see App
  */
 public class AppConfig extends AbsConfig {
 
