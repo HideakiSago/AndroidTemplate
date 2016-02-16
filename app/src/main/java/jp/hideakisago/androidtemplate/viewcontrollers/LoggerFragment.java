@@ -1,13 +1,12 @@
 package jp.hideakisago.androidtemplate.viewcontrollers;
 
-import android.animation.Animator;
-import android.app.Fragment;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.util.AttributeSet;
 import android.view.ContextMenu;
 import android.view.LayoutInflater;
@@ -16,6 +15,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
 
 import jp.hideakisago.androidtemplate.libraries.utilities.log.Logger;
 
@@ -66,9 +66,8 @@ public class LoggerFragment extends Fragment {
     }
 
     @Override
-    public Animator onCreateAnimator(int transit, boolean enter, int nextAnim) {
-        mLog.trace(transit, enter, nextAnim);
-        return super.onCreateAnimator(transit, enter, nextAnim);
+    public Animation onCreateAnimation(int transit, boolean enter, int nextAnim) {
+        return super.onCreateAnimation(transit, enter, nextAnim);
     }
 
     @Override
@@ -186,12 +185,6 @@ public class LoggerFragment extends Fragment {
     public void onStop() {
         mLog.trace();
         super.onStop();
-    }
-
-    @Override
-    public void onTrimMemory(int level) {
-        mLog.trace(level);
-        super.onTrimMemory(level);
     }
 
     @Override
