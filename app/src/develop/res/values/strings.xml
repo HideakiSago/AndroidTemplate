@@ -5,4 +5,10 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
+
+    <string name="nav_screens">Screens</string>
+    <string name="nav_rest_apis">REST APIs</string>
+    <string name="nav_samples">Samples</string>
+    <string name="nav_others">Others</string>
+
 </resources>
