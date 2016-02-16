@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.RecyclerView
+<ListView
     android:id="@+id/list"
     android:name="jp.hideakisago.androidtemplate.viewcontrollers.menu.ScreenListFragment"
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -10,5 +9,4 @@
     android:layout_marginLeft="16dp"
     android:layout_marginRight="16dp"
     app:layoutManager="LinearLayoutManager"
-    tools:context="jp.hideakisago.androidtemplate.viewcontrollers.menu.ScreenListFragment"
-    tools:listitem="@layout/fragment_screen" />
+    tools:context="jp.hideakisago.androidtemplate.viewcontrollers.menu.ScreenListFragment" />
