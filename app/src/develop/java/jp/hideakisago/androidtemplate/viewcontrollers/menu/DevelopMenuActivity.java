@@ -12,9 +12,15 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import jp.hideakisago.androidtemplate.R;
+import jp.hideakisago.androidtemplate.libraries.utilities.log.Logger;
 
 public class DevelopMenuActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    private final Logger mLog = Logger.Factory.create(this);
+
+    /** バックスタック監視。 */
+    private BackStackTracer mBackStackTracer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,11 +38,19 @@ public class DevelopMenuActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+        initBackStackTracer();
+
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.content_frame, new ScreenListFragment())
                     .commit();
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        destroyBackStackTracer();
     }
 
     @Override
@@ -106,5 +120,31 @@ public class DevelopMenuActivity extends AppCompatActivity
         }
 
         return true;
+    }
+
+
+    /** バックスタック監視を開始します。 */
+    private void initBackStackTracer() {
+        mBackStackTracer = new BackStackTracer();
+        getSupportFragmentManager().addOnBackStackChangedListener(mBackStackTracer);
+    }
+
+    /** バックスタック監視を終了します。 */
+    private void destroyBackStackTracer() {
+        getSupportFragmentManager().removeOnBackStackChangedListener(mBackStackTracer);
+        mBackStackTracer = null;
+    }
+
+    /** バックスタック変更リスナ。 */
+    private class BackStackTracer implements FragmentManager.OnBackStackChangedListener {
+        @Override
+        public void onBackStackChanged() {
+            FragmentManager fm = getSupportFragmentManager();
+            final int count = fm.getBackStackEntryCount();
+            for (int index = 0; index < count; index++) {
+                FragmentManager.BackStackEntry entry = fm.getBackStackEntryAt(index);
+                mLog.d("" + index + " " + entry);
+            }
+        }
     }
 }
