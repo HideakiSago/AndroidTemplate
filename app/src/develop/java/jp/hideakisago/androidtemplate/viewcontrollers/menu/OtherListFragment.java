@@ -2,25 +2,25 @@ package jp.hideakisago.androidtemplate.viewcontrollers.menu;
 
 import java.util.List;
 
-public class ScreenListFragment extends AbsMenuListFragment {
+public class OtherListFragment extends AbsMenuListFragment {
 
     @Override
-    protected List<AbsMenuListFragment.Item> createItems() {
+    protected List<Item> createItems() {
 
         return new ItemListBuilder()
-                .add("Screen", new Runnable() {
+                .add("Other", new Runnable() {
                     @Override
                     public void run() {
                         mLog.trace();
                     }
                 })
-                .add("Screen", new Runnable() {
+                .add("Other", new Runnable() {
                     @Override
                     public void run() {
                         mLog.trace();
                     }
                 })
-                .add("Screen", new Runnable() {
+                .add("Other", new Runnable() {
                     @Override
                     public void run() {
                         mLog.trace();
