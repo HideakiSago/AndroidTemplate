@@ -19,17 +19,6 @@ import jp.hideakisago.androidtemplate.models.configurations.AppConfig;
 public abstract class AbsUiFragment extends LoggerFragment {
 
     /**
-     * この画面の title を取得します。
-     *
-     * Title は GA や toolbar への表示に利用できます。
-     *
-     * @return この画面の title を返します。
-     */
-    protected String getTitle() {
-        return null;
-    }
-
-    /**
      * この画面の layout id を取得します。
      *
      * {@link #onCreateView(LayoutInflater, ViewGroup, Bundle)} で呼び出され、 layout を inflate します。
