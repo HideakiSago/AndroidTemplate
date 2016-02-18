@@ -2,6 +2,7 @@ package jp.hideakisago.androidtemplate.viewcontrollers.menu;
 
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -58,6 +59,12 @@ public class DevelopMenuActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
+        } else if (!getSupportFragmentManager()
+                .findFragmentById(R.id.content_frame)
+                .getClass()
+                .equals(ScreenListFragment.class)) {
+            getSupportFragmentManager().popBackStack(
+                    ScreenListFragment.class.getName(), FragmentManager.POP_BACK_STACK_INCLUSIVE);
         } else {
             super.onBackPressed();
         }
@@ -95,28 +102,51 @@ public class DevelopMenuActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        final Class<?> fragmentClass;
+        final Class<?> nextClass;
 
         switch (id) {
             case R.id.nav_screens:
-                fragmentClass = ScreenListFragment.class;
+                nextClass = ScreenListFragment.class;
                 break;
             case R.id.nav_rest_apis:
-                fragmentClass = ScreenListFragment.class;
+                nextClass = ApiListFragment.class;
                 break;
             case R.id.nav_samples:
-                fragmentClass = ScreenListFragment.class;
+                nextClass = SampleListFragment.class;
                 break;
             case R.id.nav_others:
-                fragmentClass = ScreenListFragment.class;
+                nextClass = OtherListFragment.class;
                 break;
             default:
                 throw new RuntimeException("Unknown ID.");
         }
 
         FragmentManager fm = getSupportFragmentManager();
-        if (fragmentClass.equals(fm.findFragmentById(R.id.content_frame).getClass())) {
+        Fragment current = fm.findFragmentById(R.id.content_frame);
+        Class<? extends Fragment> currentClass = current.getClass();
+        if (nextClass.equals(currentClass)) {
             return true;
+        }
+
+        final String nextFragmentName = nextClass.getName();
+        final int count = fm.getBackStackEntryCount();
+        for (int index = 0; index < count; index++) {
+            FragmentManager.BackStackEntry entry = fm.getBackStackEntryAt(index);
+            if (entry.getName().equals(nextFragmentName)) {
+                fm.popBackStack(nextFragmentName, FragmentManager.POP_BACK_STACK_INCLUSIVE);
+                return true;
+            }
+        }
+
+        try {
+            fm.beginTransaction()
+                    .replace(R.id.content_frame, (Fragment) nextClass.newInstance())
+                    .addToBackStack(currentClass.getName())
+                    .commit();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
         }
 
         return true;
