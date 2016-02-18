@@ -23,6 +23,9 @@ public class DevelopMenuActivity extends AppCompatActivity
     /** バックスタック監視。 */
     private final BackStackTracer mBackStackTracer = new BackStackTracer();
 
+    /** ナビゲーション。 */
+    private NavigationView mNavigationView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,8 +39,8 @@ public class DevelopMenuActivity extends AppCompatActivity
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
+        mNavigationView = (NavigationView) findViewById(R.id.nav_view);
+        mNavigationView.setNavigationItemSelectedListener(this);
 
         initBackStackTracer();
 
@@ -65,6 +68,7 @@ public class DevelopMenuActivity extends AppCompatActivity
                 .equals(ScreenListFragment.class)) {
             getSupportFragmentManager().popBackStack(
                     ScreenListFragment.class.getName(), FragmentManager.POP_BACK_STACK_INCLUSIVE);
+            mNavigationView.getMenu().getItem(0).setChecked(true);
         } else {
             super.onBackPressed();
         }
