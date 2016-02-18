@@ -18,10 +18,11 @@ import jp.hideakisago.androidtemplate.libraries.utilities.log.Logger;
 public class DevelopMenuActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    /** ログ。 */
     private final Logger mLog = Logger.Factory.create(this);
 
     /** バックスタック監視。 */
-    private BackStackTracer mBackStackTracer;
+    private final BackStackTracer mBackStackTracer = new BackStackTracer();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -155,14 +156,12 @@ public class DevelopMenuActivity extends AppCompatActivity
 
     /** バックスタック監視を開始します。 */
     private void initBackStackTracer() {
-        mBackStackTracer = new BackStackTracer();
         getSupportFragmentManager().addOnBackStackChangedListener(mBackStackTracer);
     }
 
     /** バックスタック監視を終了します。 */
     private void destroyBackStackTracer() {
         getSupportFragmentManager().removeOnBackStackChangedListener(mBackStackTracer);
-        mBackStackTracer = null;
     }
 
     /** バックスタック変更リスナ。 */
