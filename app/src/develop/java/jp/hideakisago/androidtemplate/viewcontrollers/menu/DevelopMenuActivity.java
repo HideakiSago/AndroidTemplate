@@ -14,6 +14,9 @@ import android.view.MenuItem;
 import jp.hideakisago.androidtemplate.R;
 import jp.hideakisago.androidtemplate.libraries.utilities.log.Logger;
 
+/**
+ * 開発 menu activity。
+ */
 public class DevelopMenuActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
