@@ -17,6 +17,9 @@ import jp.hideakisago.androidtemplate.libraries.utilities.log.Logger;
 public class DevelopMenuActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    /** Main content。 */
+    private static final Class<? extends Fragment> MAIN_CONTENT = ScreenListFragment.class;
+
     /** ログ。 */
     private final Logger mLog = Logger.Factory.create(this);
 
@@ -45,9 +48,13 @@ public class DevelopMenuActivity extends AppCompatActivity
         initBackStackTracer();
 
         if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.content_frame, new ScreenListFragment())
-                    .commit();
+            try {
+                getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.content_frame, MAIN_CONTENT.newInstance())
+                        .commit();
+            } catch (Exception e) {
+                mLog.e(e);
+            }
         }
     }
 
@@ -65,10 +72,10 @@ public class DevelopMenuActivity extends AppCompatActivity
         } else if (!getSupportFragmentManager()
                 .findFragmentById(R.id.content_frame)
                 .getClass()
-                .equals(ScreenListFragment.class)) {
+                .equals(MAIN_CONTENT)) {
             getSupportFragmentManager().popBackStack(
-                    ScreenListFragment.class.getName(), FragmentManager.POP_BACK_STACK_INCLUSIVE);
-            mNavigationView.getMenu().getItem(0).setChecked(true);
+                    MAIN_CONTENT.getName(), FragmentManager.POP_BACK_STACK_INCLUSIVE);
+            mNavigationView.getMenu().findItem(R.id.nav_screens).setChecked(true);
         } else {
             super.onBackPressed();
         }
@@ -125,10 +132,8 @@ public class DevelopMenuActivity extends AppCompatActivity
                     .replace(R.id.content_frame, (Fragment) nextClass.newInstance())
                     .addToBackStack(currentClass.getName())
                     .commit();
-        } catch (InstantiationException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+            mLog.e(e);
         }
 
         return true;
