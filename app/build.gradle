@@ -41,7 +41,13 @@ android {
 }
 
 dependencies {
+    // libs配下のjarファイル
     compile fileTree(include: ['*.jar'], dir: 'libs')
+    // JUnit
     testCompile 'junit:junit:4.12'
+    // 後方互換パッケージ
+    compile 'com.android.support:support-v4:23.1.1'
     compile 'com.android.support:appcompat-v7:23.1.1'
+    compile 'com.android.support:design:23.1.1'
+    compile 'com.android.support:recyclerview-v7:23.1.1'
 }
