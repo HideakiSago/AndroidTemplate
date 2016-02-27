@@ -1,4 +1,19 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath 'me.tatarka:gradle-retrolambda:3.2.5'
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
 apply plugin: 'com.android.application'
+apply plugin: "me.tatarka.retrolambda"
 
 def APPLICATION_ID = "jp.hideakisago.androidtemplate"
 def VERSION_CODE = 1
