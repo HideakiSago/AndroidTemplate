@@ -11,24 +11,9 @@ public class SampleListFragment extends AbsMenuListFragment {
     protected List<Item> createItems() {
 
         return new ItemListBuilder()
-                .add("Sample", new Runnable() {
-                    @Override
-                    public void run() {
-                        mLog.trace();
-                    }
-                })
-                .add("Sample", new Runnable() {
-                    @Override
-                    public void run() {
-                        mLog.trace();
-                    }
-                })
-                .add("Sample", new Runnable() {
-                    @Override
-                    public void run() {
-                        mLog.trace();
-                    }
-                })
+                .add("Sample", mLog::trace)
+                .add("Sample", mLog::trace)
+                .add("Sample", mLog::trace)
                 .items;
     }
 }

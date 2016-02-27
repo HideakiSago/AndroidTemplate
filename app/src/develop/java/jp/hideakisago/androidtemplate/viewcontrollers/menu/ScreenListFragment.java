@@ -11,24 +11,9 @@ public class ScreenListFragment extends AbsMenuListFragment {
     protected List<AbsMenuListFragment.Item> createItems() {
 
         return new ItemListBuilder()
-                .add("Screen", new Runnable() {
-                    @Override
-                    public void run() {
-                        mLog.trace();
-                    }
-                })
-                .add("Screen", new Runnable() {
-                    @Override
-                    public void run() {
-                        mLog.trace();
-                    }
-                })
-                .add("Screen", new Runnable() {
-                    @Override
-                    public void run() {
-                        mLog.trace();
-                    }
-                })
+                .add("Screen", mLog::trace)
+                .add("Screen", mLog::trace)
+                .add("Screen", mLog::trace)
                 .items;
     }
 }

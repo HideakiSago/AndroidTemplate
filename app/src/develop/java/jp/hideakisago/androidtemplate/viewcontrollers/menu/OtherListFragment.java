@@ -11,24 +11,9 @@ public class OtherListFragment extends AbsMenuListFragment {
     protected List<Item> createItems() {
 
         return new ItemListBuilder()
-                .add("Other", new Runnable() {
-                    @Override
-                    public void run() {
-                        mLog.trace();
-                    }
-                })
-                .add("Other", new Runnable() {
-                    @Override
-                    public void run() {
-                        mLog.trace();
-                    }
-                })
-                .add("Other", new Runnable() {
-                    @Override
-                    public void run() {
-                        mLog.trace();
-                    }
-                })
+                .add("Other", mLog::trace)
+                .add("Other", mLog::trace)
+                .add("Other", mLog::trace)
                 .items;
     }
 }
