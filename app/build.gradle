@@ -1,4 +1,19 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath 'me.tatarka:gradle-retrolambda:3.2.5'
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
 apply plugin: 'com.android.application'
+apply plugin: "me.tatarka.retrolambda"
 
 def APPLICATION_ID = "jp.hideakisago.androidtemplate"
 def VERSION_CODE = 1
@@ -10,6 +25,11 @@ def VERSION_NAME = "${VERSION_NAME_MAJOR}.${VERSION_NAME_MINOR}.${VERSION_NAME_P
 android {
     compileSdkVersion 23
     buildToolsVersion "23.0.2"
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 
     defaultConfig {
         applicationId APPLICATION_ID

@@ -11,24 +11,9 @@ public class ApiListFragment extends AbsMenuListFragment {
     protected List<Item> createItems() {
 
         return new ItemListBuilder()
-                .add("API", new Runnable() {
-                    @Override
-                    public void run() {
-                        mLog.trace();
-                    }
-                })
-                .add("API", new Runnable() {
-                    @Override
-                    public void run() {
-                        mLog.trace();
-                    }
-                })
-                .add("API", new Runnable() {
-                    @Override
-                    public void run() {
-                        mLog.trace();
-                    }
-                })
+                .add("API", mLog::trace)
+                .add("API", mLog::trace)
+                .add("API", mLog::trace)
                 .items;
     }
 }

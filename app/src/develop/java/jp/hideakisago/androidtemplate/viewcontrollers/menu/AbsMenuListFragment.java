@@ -56,12 +56,7 @@ public abstract class AbsMenuListFragment extends AbsUiFragment {
                 android.R.layout.simple_list_item_1,
                 createItems()));
 
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                AbsMenuListFragment.this.onItemClick(parent, view, position, id);
-            }
-        });
+        listView.setOnItemClickListener(AbsMenuListFragment.this::onItemClick);
     }
 
     /**
